@@ -13,7 +13,7 @@
 ### 基本说明
 1、基于.NET5.0 MVC，依赖注入(IoC)使用默认DI容器
 
-2、爬虫接口相关沿用旧项目 https://gitee.com/chen3322275/UnLockMusic
+2、爬虫接口相关沿用旧项目 https://gitee.com/lisheng741/UnLockMusic
 
 3、代码内容相对较少，代码编写规范，是很友好的 .NET Core 入门项目
 
