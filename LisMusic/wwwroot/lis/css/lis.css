@@ -1,0 +1,95 @@
+﻿
+/* 层级z-index：提示层(6位数)999000(mask)、999999(content)；mask遮罩层(5)99900、99999；导航(4)9900、9999；内容层(3)999以内 */
+
+
+/* 通用适配 */
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul {margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+
+/* 11个图标，来源：https://icomoon.io/app/#/select */
+@font-face {
+  font-family: 'icomoon-io';font-weight: normal;font-style: normal;font-display: swap;
+  src: url('data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAUoAA0AAAAAEQgAAATSAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACDDhEICpVkkwgLIgABNgIkAywEIAWDGweBKRuhDhHVmzbZj8K44b6hNHct8j8F+RKb0Ewmm6Fc4+G/Nfb37Qxqg0uEKhYqlAQp0MhkSsNPV/khacj7923m+wkxfuy0Yl1RYd0ga8KKKLQONZNTG+qSpPXD3Y6dIMwtpQwDtqNNp9/P1f9ue7hXsQShEhIlEeJEvCGqc0mIWRRvnsRT2BEaRyyfRuiEhEFz2/1MLaONSDzibO8nA9Twa+E7XvvoQDsKKiF0CRkVUvqKrRqoTqs7nFAbib/WooWWV3Q7cFv82UtSLdlOZA4CmFMpdiLMMYRzzAw+PDu6f9EtaRSmfv+SxvV35092/b+uoSy/0I73XesqK2W+zJbJMjxwP3AnCYWBA5KyRCOR/KMyXLX4y8hIthB1rUtAN78pPVdJZzQcgpNbEm0QkQ3yQVnSolGSjAbLY2Pt7QXCwTGWkGg0NtM71jeTpndYtMyGjbVn/lgjOMHtW3VeLHxuiboG3P6nT4ivsdLWSyA+5oat+CUWLUk1taZumjkTl7eJjM0GIeJrhaTQthy4A4uFCOdFjzxAMCkQG3tfw5uxeBe4S1K41xF/dV3txcCzn2JvkkL8bWvw+XDmmgWLtvkx9fF8nNpuYxFv1tL6Tb05MWOiarFX6KSvhFywJdzBYtwtS9C5sJrrmsc/Rcqs3m6DDaaVxRa2ieeAI4zLJv1KxF/AuIyB1VqTaMsuPeolW/2zTz1eMWumWhd3MLF7aHKolYU3MnFnSeH8CDimHi2+B+4piXyQf8wWehLuctmIt5JtDeZ26mgPGw3oYGr9Vks7+Y94vEpWGzpmWHKWI2+sbGNGZ7cixCJpWcN0ddYy84zSifXnoA/jrM3UsN10DRiXiljjEgmioICiEgdjymJL928xlbEvUThUOlxXYirduym6LLp0NJGiCgqInBhW6edeOv9reTmjZdm9KK3xyPUVYM/oawxoChAEpqCxry8ggWPwjCsBfWUHKU8cpYs9i1eMjKzw+DRNaMUs3nHFky6rPffLNcfVsl12SZyX4VgZlfXyVW6gMBcaOif4slcvs3LlEpuSlmbPJHgmaV22tfaBddnY8dcMVUea9icfQG6v/RqJlezXjqhkNtTv38vJIzpvXatLrQtn01vzdAlyT86Tb91izxvPdqxY2c72zTH8L73JB4ADm+qo7zqaixnmuckh6o/BPyiDYqWsqAqcDpy3nNXUlMV6puVIsz1XmIECy5ONbTO0CU+at2/KrvfIVGsmAGXFTc5FkPorLxtmMvQdzEDU+/67rs7N3cS5/+nBfaBiMqIRiHz68fMXL1oM6//UmIBH99PBLmWQ3wJQk/UgPm6zoCWTUAcaUcoMkegAxDJEKXoiAEZraTQlqNG7DMmIihwDGQwEckgBApqSFbCZZCWVnRUkFx96hKOsQfRkABl0AnIYCQhYkKzgoDVZSW/1waRYB/XqMGzQbjRsCPS+kbjL8BBAFVa3SQPajIHfupoCbVUsy0ljjRnX29NTlHCR4FPwEKPCI/sx89JdJ3jqxhoaJX2bCazOpu1meSoksFQRDr56D3hTqCjsGP6XmNMAkDFe1ghQBbKQgzwIpEBKpEJqpEEkwkiLdEiv7B6YHemJUk0O9UZSRD8pNyknKzg3CkbDOBgPs7DZwXkxmNjozNgoRgwA') format('woff2');
+}
+[class^="icomoon-"], [class*=" icomoon-"] {
+  font-family: 'icomoon-io' !important;speak: never;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;
+  -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
+}
+.icomoon-heart-broken:before {content: "\e9db";}
+.icomoon-smile:before {content: "\e9e1";}
+.icomoon-smile2:before {content: "\e9e2";}
+.icomoon-sad:before {content: "\e9e5";}
+.icomoon-sad2:before {content: "\e9e6";}
+.icomoon-cool:before {content: "\e9eb";}
+.icomoon-cool2:before {content: "\e9ec";}
+.icomoon-baffled:before {content: "\e9f3";}
+.icomoon-baffled2:before {content: "\e9f4";}
+.icomoon-circle-up:before {content: "\ea41";}
+.icomoon-circle-down:before {content: "\ea43";}
+
+
+/* 通用层级 */
+.lisui-mask{position:absolute;left:0;right:0;top:0;bottom:0;z-index:99900;background-color:rgba(167, 167, 167, 0.70);}
+/* 通用移动端布局 */
+.lisui-absolute-0 {position:absolute;top:0;bottom:0;left:0;right:0;}
+.lisui-relative-100 {position:relative;width:100%;height:100%;}
+.lisui-layout-vertical {display:flex;flex-direction:column;position:relative;width:100%;height:100%;}
+.lisui-layout-horizontal {display:flex;position:relative;width:100%;height:100%;}
+.lisui-layout-center {display:flex;align-items:center;justify-content:space-around;flex-direction:column;text-align:center;} /* 垂直水平方向都居中 */
+/* 移动端导航 */
+.lisui-bottom-nav {position:relative;display:flex;width:100%;height:50px;flex-shrink:0;}
+
+/* 背景(bkg)、字体色(ftc) 颜色：红色r、粉色p、橙o、黄y、绿g、青c、蓝b、紫v、白w */
+.lisui-bkg-c1-y1-p1 {background-image:linear-gradient(#BBFFEE, #FFFFBB, #FFB7DD);}
+.lisui-bkg-c1-y1-b2 {background-image:linear-gradient(#BBFFEE, #FFFFBB, #00B7DD);}
+.lisui-bkg-w1 {background-color:#f7f5f5;}
+.lisui-bkg-w3 {background-color:#F0FFFF;}
+
+
+/* mdLayerTip */
+@keyframes Loading {
+  0%{transform: rotate3d(0, 0, 1, 0deg);}
+  100%{transform: rotate3d(0, 0, 1, 360deg);}
+}
+@-moz-keyframes Loading {
+  0%{transform: rotate3d(0, 0, 1, 0deg);}
+  100%{transform: rotate3d(0, 0, 1, 360deg);}
+}
+@-webkit-keyframes Loading {
+  0%{transform: rotate3d(0, 0, 1, 0deg);}
+  100%{transform: rotate3d(0, 0, 1, 360deg);}
+}
+.lisui-loading{position:fixed;left:0;right:0;top:0;bottom:0;z-index:999000;background-color:rgba(255, 255, 255, 0);}
+.lisui-loading-tip i{width:60px;height:60px;display:block;margin:0 auto;
+    background: transparent url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath fill='none' d='M0 0h100v100H0z'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E9E9E9' rx='5' ry='5' transform='translate(0 -30)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23989697' rx='5' ry='5' transform='rotate(30 105.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%239B999A' rx='5' ry='5' transform='rotate(60 75.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23A3A1A2' rx='5' ry='5' transform='rotate(90 65 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23ABA9AA' rx='5' ry='5' transform='rotate(120 58.66 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23B2B2B2' rx='5' ry='5' transform='rotate(150 54.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23BAB8B9' rx='5' ry='5' transform='rotate(180 50 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23C2C0C1' rx='5' ry='5' transform='rotate(-150 45.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23CBCBCB' rx='5' ry='5' transform='rotate(-120 41.34 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23D2D2D2' rx='5' ry='5' transform='rotate(-90 35 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23DADADA' rx='5' ry='5' transform='rotate(-60 24.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E2E2E2' rx='5' ry='5' transform='rotate(-30 -5.98 65)'/%3E%3C/svg%3E") no-repeat;
+    background-size: 100%;animation: Loading 1s steps(12,end) infinite;-moz-animation: Loading 1s steps(12,end) infinite;-webkit-animation: Loading 1s steps(12,end) infinite;
+}
+.lisui-loading-tip p{width:100%;color:#fff;text-align:center;}
+.lisui-loading-tip, .lisui-layer-tip {position:absolute;left:50%;top:40%;margin:-50px 0 0 -50px;padding:10px;width:100px;min-height:100px;border-radius:10px;background-color:rgba(77, 77, 77, 0.7);}
+.lisui-layer-tip {z-index:999999;}
+.lisui-layer-tip i {margin:0 auto;display:block;width:60px;height:60px;font-size:50px;line-height:60px;}
+.lisui-layer-tip i, .lisui-layer-tip p {text-align:center;color:#fff;width:100%;}
+
+
+/* mdMusicList */
+.lst-search {flex:0 0 60px;position:relative;width:100%;display:flex;align-items:center;justify-content:space-around;background:#f3f3f3;}
+.lst-search-body {position:relative;flex:0 0 80%;}
+.lst-search-text, .lst-search-submit {height:35px;}
+.lst-search-text {width:100%;border-radius:10px;padding:5px 45px 5px 8px;}
+.lst-search-delete {position:absolute;right:60px;}
+.lst-search-submit {position:absolute;right:0;width:40px;border-radius:0 10px 10px 0;}
+
+.lst-list {flex:1 1 100%;overflow-y:auto;position:relative;}
+.lst-list-item {position:relative;width:100%;border-bottom:1px solid #ddd;padding:5px 25px;}
+.lst-list-item-content {cursor:pointer;width:calc( 100% - 80px );}
+.lst-i-content-title, .lst-i-content-description {margin-bottom:5px;position:relative;}
+.lst-list-item-content .lst-i-content-title {font-size:16px;color:#0172d1;}
+.lst-list-item-content.disabled .lst-i-content-title {color:#ccc;}
+.lst-i-content-description {color:#999;font-size:12px;}
+.lst-list-item.active .lst-i-content-title {font-weight:bold;}
+.lst-list-item:hover {background:#ccc;font-weight:bold;}
+.lst-i-content-title-source {position:absolute;right:0;}
+
+.lst-list-item-btn {position:absolute;right:25px;top:calc( 50% - 15px );}
+.lst-list-item-btn button {background:transparent;border:none;font-size:16px;color:#0f7fde;width:30px;height:30px;}
+.lst-i-btn-play, .lst-i-btn-download {}

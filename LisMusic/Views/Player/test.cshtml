@@ -1,0 +1,112 @@
+﻿@{
+    Layout = "_LayoutVue";
+    ViewData["Title"] = "播放器";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/lib/zplayer/css/zplayer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/player.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lis/css/lis.css" asp-append-version="true" />
+    <style>
+        #i-player {
+            width: 100%;
+        }
+    </style>
+}
+<div class="container-abs" id="i-container">
+    <div class="container-rel lisui-bkg-c1-y1-p1">
+
+        <!--<div class="lst-search">
+            <div class="lst-search-body">
+                <input class="lst-search-text" type="text" value="" placeholder="输入关键词搜索" />-->
+        @*<button class="lst-search-delete" type="button"><i class="icon-pause"></i></button>*@
+        <!--<button class="lst-search-submit" type="submit"><i class="icon-search"></i></button>
+            </div>
+        </div>
+        <div class="lst-list">
+            @for (int i = 0; i < 20; i++)
+            {
+                <div class="lst-list-item">
+                    <div class="lst-list-item-content">
+                        <div class="lst-i-content-title">
+                            <span class="lst-i-content-title-name">九万字</span>
+                        </div>
+                        <div class="lst-i-content-description">
+                            <span class="lst-i-content-description-singer">黄诗扶</span>
+                            <span>&nbsp;-&nbsp;</span>
+                            <span class='lst-i-content-description-album'>人间不值得</span>
+                        </div>
+                    </div>
+                    <div class='lst-list-item-btn'>
+                        <button class='lst-i-btn-play' type='submit'><i class='icon-play'></i></button>
+                        <button class='lst-i-btn-download' type='submit'><i class='icon-download'></i></button>
+                    </div>
+                </div>
+            }
+        </div>-->
+        <div class="bd-content">
+            <div id="i-list" class="lisui-layout-vertical">
+
+            </div>
+        </div>
+
+        <!-- 播放器 -->
+        <div class="bd-player">
+            <div id="i-player"></div>
+        </div>
+
+        <div class="bd-nav">
+            <a class="nav-a" v-for="(item, index) in tabList" :key="index" v-on:click="tabChange(index)">
+                <div :class="index==tabIndex?'nav-a-btn active':'nav-a-btn'">
+                    <i :class="item.icon"></i>
+                    <span>{{item.text}}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/zplayer/js/zplayer.js" asp-append-version="true"></script>
+    <script src="~/lis/js/LayerTip.js" asp-append-version="true"></script>
+    <script src="~/lis/js/MusicList.js" asp-append-version="true"></script>
+    <script src="~/lis/js/Router.js" asp-append-version="true"></script>
+    <script src="~/lis/js/lis.js" asp-append-version="true"></script>
+    <script src="~/js/Pages/Player.js" asp-append-version="true"></script>
+
+    <script>
+        var options = { ele: '#i-list', url: '/api/Music/GetMusicList', keyword: '', kwplaceholder: '输入关键词搜索', btn: ['play', 'download', 'more'] };
+        var musicList = new MusicList(options);
+
+        var vm = new Vue({
+            el: '#i-container'
+            , data: {
+                tabIndex: 1,
+                tabList: [
+                    { text: '啊这', icon: 'icon-music', path: '' },
+                    { text: '音乐', icon: 'icon-headphones', path: '' },
+                    { text: '我的', icon: 'icon-home', path: '' }
+                ]
+            }
+            , computed: {}
+            , methods: {
+                tabChange(index) {
+                    this.tabIndex = index;
+                    router.push(index);
+                }
+            }
+            , created: function () { }
+        })
+
+        var zp1 = new zplayer({
+            element: document.getElementById("i-player"),
+            autoPlay: 1,
+            listFolded: 1,
+            musics: [{
+                title: "讲真的",
+                author: "曾惜",
+                url: "http://music.163.com/song/media/outer/url?id=30987293.mp3",
+                pic: "http://p1.music.126.net/cd9tDyVMq7zzYFbkr0gZcw==/2885118513459477.jpg?param=300x300",
+                lrc: "[by:却连一句我爱你都不能说出口]\n[ti:讲真的]\n[ar:曾惜]\n[al:不要你为难]\n[by:冰城离殇]\n[00:00] 作曲 : 何诗蒙\n[00:01] 作词 : 黄然\n[00:18]今夜特别漫长\n[00:21]有个号码一直被存放\n[00:25]源自某种倔强\n[00:30]不舍删去又不敢想\n[00:33]明明对你念念不忘\n[00:37]思前想后愈发紧张\n[00:41]无法深藏\n[00:43]爱没爱过想听你讲\n[00:48]讲真的\n[00:51]会不会是我 被鬼迷心窍了\n[00:54]敷衍了太多 我怎么不难过\n[00:58]要你亲口说 别只剩沉默\n[01:03]或许你早就回答了我\n[01:06]讲真的\n[01:08]想得不可得 是最难割舍的\n[01:11]各自好好过 也好过一直拖\n[01:15]自作多情了 好吧我认了\n[01:19]至少能换来释怀洒脱\n[01:23]没丢失掉自我\n[01:42]今夜特别漫长\n[01:44]有个号码一直被存放\n[01:49]源自某种倔强\n[01:53]不舍删去又不敢想\n[01:57]明明对你念念不忘\n[02:01]思前想后愈发紧张\n[02:05]无法深藏\n[02:08]爱没爱过想听你讲\n[02:13]讲真的\n[02:15]会不会是我 被鬼迷心窍了\n[02:19]敷衍了太多 我怎么不难过\n[02:23]要你亲口说 别只剩沉默\n[02:27]或许你早就回答了我\n[02:30]讲真的\n[02:32]想得不可得 是最难割舍的\n[02:35]各自好好过 也好过一直拖\n[02:40]自作多情了 好吧我认了\n[02:44]至少能换来释怀洒脱\n[02:47]没丢失掉自我\n[03:04]讲真的\n[03:05]会不会是我 被鬼迷心窍了\n[03:09]敷衍了太多 我怎么不难过\n[03:14]要你亲口说 别只剩沉默\n[03:18]或许你早就回答了我\n[03:21]讲真的\n[03:22]想得不可得 是最难割舍的\n[03:26]各自好好过 也好过一直拖\n[03:30]自作多情了 好吧我认了\n[03:35]至少能换来释怀洒脱\n[03:38]没丢失掉自我\n"
+            }]
+        })
+    </script>
+}

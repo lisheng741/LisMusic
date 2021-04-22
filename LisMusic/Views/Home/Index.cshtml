@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单页路由测试</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome</h1>
+
+
+
+        <a href="#">空的</a>
+        <a href="#index">index啊啊啊</a>
+        <button onclick="router.push('next')">next测试</button>
+
+        <div id="index">
+            index啊啊啊
+        </div>
+        <div id="next">
+            next啊啊啊
+            啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+        </div>
+    </div>
+
+    <script src="~/js/Router.js"></script>
+    <script src="~/js/site.js"></script>
+    <script>
+        var b1 = new bb();
+        b1.api();
+        b1.api2();
+
+
+        //路由表
+        var routes = [
+            { id: '' },
+            { id: 'index', title: '首页' },
+            { id: 'next', title: '下一页', handle: function () { console.log("切换到next"); console.log(this); } }
+        ]
+
+        //路由器
+        var router = new Router2(routes);
+
+       
+    </script>
+</body>
+</html>
