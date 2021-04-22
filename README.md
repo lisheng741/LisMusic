@@ -15,6 +15,8 @@
 
 4、静态文件（/wwwroot/lis/）实现了几个组件，其中 Router.js 可应用于 __传统项目__ 和 __MVC项目__ 实现 __单页应用效果__ 
 
+5、播放器使用的是 zplayer 进行二次开发，项目链接 https://gitee.com/supperzh/zplayer
+
 
 ### 项目期望
 1、来个前端的朋友改善一下这没眼看的界面
