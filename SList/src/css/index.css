@@ -1,0 +1,82 @@
+/* common */
+*{
+    box-sizing: border-box;
+}
+
+.slist-body{
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: #1a5474;
+    color: #fff;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* list */
+.slist-list{
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 55px;
+    margin: 25px; padding: 0;
+    border: #fff 1px solid;
+    list-style: none;
+    overflow-x: hidden; overflow-y: auto;
+}
+.slist-only-list .slist-list{
+    bottom: 0;
+}
+.slist-list .slist-list-line{
+    position: relative;
+    display: flex;
+    border-bottom: solid 1px #aaa;
+    line-height: 45px;
+    padding-left: 15px;
+}
+.slist-list .slist-list-line .slist-list-line-add,
+.slist-list .slist-list-line .slist-list-line-delete{
+    position: relative;
+    flex: 0 0 32px;
+    text-align: center;
+}
+.slist-list .slist-list-line .slist-list-line-title{
+    font-size: 16px;
+    flex: 0 1 auto;
+    white-space: nowrap; overflow: hidden;
+}
+.slist-list .slist-list-line .slist-list-line-author{
+    font-size: 14px;
+    opacity: 0.8;
+    flex: 1 1 auto;
+    margin-left: 5px;
+    white-space: nowrap; overflow: hidden;
+}
+.slist-list .slist-list-line.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: #fff;
+}
+.slist-list .slist-list-line.active .slist-list-line-title{
+    font-weight: bold;
+}
+
+/* search */
+.slist-search{
+    position: absolute;
+    bottom: 0;
+    width: 100%; height: 55px;
+    margin-left: 25px;
+}
+.slist-search .slist-search-text{
+    position: relative;
+    width: calc( 95% - 65px );
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 12px;
+    background-color: #d5ddee;
+}
+.slist-search .slist-search-button{
+    position: relative;
+    vertical-align: middle;
+    margin-left: 5px;
+}

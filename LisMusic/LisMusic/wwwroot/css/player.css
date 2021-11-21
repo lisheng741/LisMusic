@@ -1,0 +1,28 @@
+﻿body {overflow:hidden;}
+
+.window{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+}
+
+.container{
+    position: relative;
+    width: 300%; height: 100%;
+}
+
+.search{
+    position: absolute;
+    width: 33.3333%; height: 100%;
+    left: 0;
+}
+.lplayer{
+    position: absolute;
+    width: 33.3333%; height: 100%;
+    left: 33.3333%;
+}
+.list{
+    position: absolute;
+    width: 33.3333%; height: 100%;
+    left: 66.6666%;
+}

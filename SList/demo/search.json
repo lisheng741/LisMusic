@@ -1,0 +1,367 @@
+{
+    "code": 0,
+    "status": "成功！",
+    "msg": "成功！",
+    "data": [
+        {
+            "id": 0,
+            "name": "九万字",
+            "singer": "熙月月",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_64686845",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 1,
+            "name": "九万字",
+            "singer": "你的二智bb",
+            "album": "",
+            "downloadInfo": "MUSIC_144649840",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 2,
+            "name": "九万字",
+            "singer": "以冬",
+            "album": "九万字（Cover：黄诗扶）",
+            "downloadInfo": "MUSIC_76954935",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 3,
+            "name": "九万字",
+            "singer": "萧忆情Alex",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_77407307",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 4,
+            "name": "九万字",
+            "singer": "浪子康\u0026豪大大",
+            "album": "这一生关于你的风景",
+            "downloadInfo": "MUSIC_75807589",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 5,
+            "name": "九万字\u0026nbsp;(cover:\u0026nbsp;黄诗扶)",
+            "singer": "司夏",
+            "album": "",
+            "downloadInfo": "MUSIC_143071440",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 6,
+            "name": "九万字（钢琴曲）",
+            "singer": "博士说书",
+            "album": "钢琴纯音乐",
+            "downloadInfo": "MUSIC_162580305",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 7,
+            "name": "九万字",
+            "singer": "小残",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_70403050",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 8,
+            "name": "九万字",
+            "singer": "李蚊香",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_67968259",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 9,
+            "name": "九万字",
+            "singer": "安小木",
+            "album": "",
+            "downloadInfo": "MUSIC_67963259",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 10,
+            "name": "九万字（翻自\u0026nbsp;黄诗扶）\u0026nbsp;",
+            "singer": "锦零",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_151455691",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 11,
+            "name": "九万字\u0026nbsp;(cover:\u0026nbsp;黄诗扶)\u0026nbsp;(cover:\u0026nbsp;温德欢)",
+            "singer": "曲画颐",
+            "album": "九万字",
+            "downloadInfo": "MUSIC_171902959",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 12,
+            "name": "九万字",
+            "singer": "洛少爷",
+            "album": "",
+            "downloadInfo": "MUSIC_79017654",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 13,
+            "name": "九万字",
+            "singer": "四零",
+            "album": "",
+            "downloadInfo": "MUSIC_70480350",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 14,
+            "name": "九万字",
+            "singer": "花世",
+            "album": "",
+            "downloadInfo": "MUSIC_69369993",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 15,
+            "name": "九万字（念白版）\u0026nbsp;(cover:\u0026nbsp;黄诗扶)",
+            "singer": "是盒纸吖_",
+            "album": "",
+            "downloadInfo": "MUSIC_152734008",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 16,
+            "name": "九万字",
+            "singer": "紫依【七弦剑吟】",
+            "album": "",
+            "downloadInfo": "MUSIC_72513319",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 17,
+            "name": "九万字\u0026nbsp;(翻奏:\u0026nbsp;钢琴演奏版)",
+            "singer": "弹钢琴",
+            "album": "流行歌钢琴演奏推荐11",
+            "downloadInfo": "MUSIC_177973735",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 18,
+            "name": "九万字",
+            "singer": "安乐府晴明",
+            "album": "",
+            "downloadInfo": "MUSIC_70101334",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 19,
+            "name": "九万字-原唱：黄诗扶",
+            "singer": "一条小团团ovo",
+            "album": "",
+            "downloadInfo": "MUSIC_95547508",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 20,
+            "name": "九万字\u0026nbsp;(cover:\u0026nbsp;黄诗扶)",
+            "singer": "ll五花肉\u0026真是怪怪的",
+            "album": "九万字（男女合唱）",
+            "downloadInfo": "MUSIC_185532953",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 21,
+            "name": "九万字",
+            "singer": "弦琴",
+            "album": "",
+            "downloadInfo": "MUSIC_89592691",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 22,
+            "name": "九万字",
+            "singer": "小慈",
+            "album": "就这样吧（dj）",
+            "downloadInfo": "MUSIC_141274293",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 23,
+            "name": "九万字\u0026nbsp;(cover:\u0026nbsp;黄师扶)",
+            "singer": "玥颖",
+            "album": "",
+            "downloadInfo": "MUSIC_146964040",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 24,
+            "name": "九万字",
+            "singer": "陈安排\u0026川叔",
+            "album": "总会离去总会相遇",
+            "downloadInfo": "MUSIC_147750105",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 25,
+            "name": "九万字",
+            "singer": "西国の海妖",
+            "album": "",
+            "downloadInfo": "MUSIC_82313964",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 26,
+            "name": "九万字",
+            "singer": "汐楼",
+            "album": "",
+            "downloadInfo": "MUSIC_78869600",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 27,
+            "name": "九万字（cover：黄诗扶）",
+            "singer": "鹿雅",
+            "album": "",
+            "downloadInfo": "MUSIC_69370743",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 28,
+            "name": "九万字-20210602\u0026nbsp;王敬轩（妖扬）生日音乐会",
+            "singer": "妖扬",
+            "album": "",
+            "downloadInfo": "MUSIC_190257967",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 29,
+            "name": "九万字",
+            "singer": "池鱼",
+            "album": "",
+            "downloadInfo": "MUSIC_173080778",
+            "musicSource": 3,
+            "canDownload": true
+        },
+        {
+            "id": 30,
+            "name": "九万字",
+            "singer": "黄诗扶",
+            "album": "人间不值得",
+            "downloadInfo": "1335942780",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 31,
+            "name": "九万字",
+            "singer": "苏玮",
+            "album": "九万字",
+            "downloadInfo": "1351392762",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 32,
+            "name": "九万字（片段版）-苏玮",
+            "singer": "顾北海",
+            "album": "夏日晚风",
+            "downloadInfo": "1879046845",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 33,
+            "name": "九万字",
+            "singer": "李蚊香",
+            "album": "九万字",
+            "downloadInfo": "1347970057",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 34,
+            "name": "九万字",
+            "singer": "妖扬",
+            "album": "九万字",
+            "downloadInfo": "1354645399",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 35,
+            "name": "九万字",
+            "singer": "以冬",
+            "album": "九万字（翻自 黄诗扶）",
+            "downloadInfo": "1378639329",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 36,
+            "name": "九万字(抖音热搜版)",
+            "singer": "卓仕琳",
+            "album": "说好的幸福呢",
+            "downloadInfo": "1831802157",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 37,
+            "name": "九万字 (念白版)",
+            "singer": "黄诗扶",
+            "album": "人间不值得",
+            "downloadInfo": "1351973067",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 38,
+            "name": "黄诗扶-九万字（DJ笙 remix）",
+            "singer": "DJ笙",
+            "album": "黄诗扶 - 九万字（DJ笙 Bootleg）",
+            "downloadInfo": "1378336559",
+            "musicSource": 4,
+            "canDownload": true
+        },
+        {
+            "id": 39,
+            "name": "九万字（温柔男声）",
+            "singer": "向文涛",
+            "album": "Cover 1",
+            "downloadInfo": "1375319263",
+            "musicSource": 4,
+            "canDownload": true
+        }
+    ]
+}

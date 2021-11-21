@@ -1,0 +1,15 @@
+{{ if options.search }}
+<div class="slist-body">
+    <ol class="slist-list">
+    </ol>
+    <div class="slist-search">
+        <input class="slist-search-text" type="text" placeholder="搜索">
+        <span class="slist-search-button">搜索</span>
+    </div>
+</div>
+{{ else }}
+<div class="slist-body slist-only-list">
+    <ol class="slist-list">
+    </ol>
+</div>
+{{ /if }}

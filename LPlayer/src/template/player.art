@@ -1,0 +1,51 @@
+<div class="lplayer-window">
+    <div class="lplayer-body" style="transform:translateY(-33.3333%);-webkit-transform: translateY(-33.3333%);">
+        <div class="lplayer-body-last">
+            <div class="lplayer-lrc">
+                <div class="lplayer-lrc-contents"></div>
+            </div>
+            <div class="lplayer-info">
+                <div class="lplayer-title"></div>
+                <div class="lplayer-author"></div>
+            </div>
+        </div>
+        <div class="lplayer-body-current">
+            <div class="lplayer-lrc">
+                <div class="lplayer-lrc-contents" style="transform:translateY(0);-webkit-transform: translateY(0);"></div>
+            </div>
+            <div class="lplayer-info">
+                <div class="lplayer-title"></div>
+                <div class="lplayer-author"></div>
+            </div>
+        </div>
+        <div class="lplayer-body-next">
+            <div class="lplayer-lrc">
+                <div class="lplayer-lrc-contents"></div>
+            </div>
+            <div class="lplayer-info">
+                <div class="lplayer-title"></div>
+                <div class="lplayer-author"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="lplayer-controller">
+        <div class="lplayer-time">
+            <div class="lplayer-time-play">00:00</div>
+            <div class="lplayer-time-bar">
+                <div class="lplayer-bar-body">
+                    <div class="lplayer-bar-loaded"></div>
+                    <div class="lplayer-bar-played">
+                        <span class="lplayer-bar-pointer"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="lplayer-time-end">55:55</div>
+        </div>
+        <div class="lplayer-play">
+            <div class="lplayer-play-btn">
+                {{@ icons.play }}
+            </div>
+        </div>
+    </div>
+</div>

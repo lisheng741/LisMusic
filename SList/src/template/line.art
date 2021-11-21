@@ -1,0 +1,12 @@
+{{each list}}
+<li class="slist-list-line" data-id="{{ $index+index }}">
+    <span class="slist-list-line-title">{{ $value.name }}</span>
+    <span  class="slist-list-line-author">{{ $value.artist || $value.singer }}</span>
+    {{ if options.button['add'] }}
+    <span class="slist-list-line-add">+</span>
+    {{ /if }}
+    {{ if options.button['delete'] }}
+    <span class="slist-list-line-delete">x</span>
+    {{ /if }}
+</li>
+{{/each}}

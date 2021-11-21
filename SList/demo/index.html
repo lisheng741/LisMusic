@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisPlayer Demo</title>
+    <style></style>
+</head>
+
+<body>
+    <div class="slist"></div>
+
+    <script src="../SList.min.js"></script>
+    <script>
+        let audios = [
+            {
+                "name": "九万字",
+                "singer": "黄诗扶"
+            },
+            {
+                "name": "讲真的",
+                "artist": "曾惜"
+            },
+            {
+                "name": "学猫叫",
+                "artist": "小潘潘"
+            }
+        ];
+        let options = {
+            ele: document.querySelector('.slist'),
+            button: {
+                add: true,
+                delete: true,
+            },
+            list: audios,
+            search: true,
+            url: 'http://localhost:37037/api/Music/GetMusicList',
+            mode: 'local',
+        }
+        let list = new SList(options);
+        if(!list.list || list.list.length === 0){
+            list.add(audios);
+        }
+
+        list.adapter.set('search', (data) => {
+            return data.map(item => {
+                let musicId = item.downloadInfo.match(/\d+/)[0];
+                item.name = item.name;
+                item.artist = item.artist;
+                item.url = `http://url.amp3a.com/kuwo.php/${musicId}.mp3`;
+                item.lrc = `https://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId=${musicId}`;
+                item.downloadInfo = item.downloadInfo;
+                return item;
+            });
+        });
+
+    </script>
+</body>
+
+</html>

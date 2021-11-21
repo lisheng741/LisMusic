@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_LayoutBlank";
+    ViewData["Title"] = "LPlayer";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/player.css" asp-append-version="true" />
+}
+<div class="window">
+    <div class="container" style="transform:translateX(-33.3333%);-webkit-transform:translateX(-33.3333%);">
+        <div class="search">
+
+        </div>
+        <div class="lplayer"></div>
+        <div class="list">
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/LPlayer/LPlayer.min.js" asp-append-version="true"></script>
+    <script src="~/lib/LPlayer/SList.min.js" asp-append-version="true"></script>
+    <script src="~/js/Pages/Player.js" asp-append-version="true"></script>
+}

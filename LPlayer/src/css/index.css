@@ -1,0 +1,161 @@
+/* common */
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul {
+    margin:0;padding:0;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+svg{
+    max-width: 100%; max-height: 100%;
+}
+
+
+/* main */
+.lplayer{
+    color:#fff;
+    overflow: hidden;
+}
+.lplayer *{
+    box-sizing: content-box;
+}
+.lplayer-window{
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: #1a5474;
+    /* transition: all .5s ease-out; */
+    overflow: hidden;
+}
+
+
+/* body */
+.lplayer-body{
+    position: relative;
+    width: 100%; height: 300%;
+}
+.lplayer-body .lplayer-body-last,
+.lplayer-body .lplayer-body-current,
+.lplayer-body .lplayer-body-next{
+    position: relative;
+    width: 100%; height: 33.3333%;
+    border-bottom: 1px solid #fff;
+}
+
+
+/* lrc */
+.lplayer .lplayer-lrc{
+    position: absolute;
+    left: 22px; top: 100px;
+    width: calc( 100% - 44px ); height: 60px;
+    overflow: hidden;
+}
+.lplayer .lplayer-lrc .lplayer-lrc-contents{
+    transition: all .5s ease-out;
+}
+.lplayer .lplayer-lrc .lplayer-lrc-contents p{
+    height: 20px;
+    font-size: 14px; line-height: 1.42857143;
+    opacity: .5;
+    overflow: hidden;
+}
+.lplayer .lplayer-lrc .lplayer-lrc-contents .lplayer-lrc-current{
+    height: auto;
+    min-height: 20px;
+    opacity: 1;
+    overflow: visible;
+}
+
+
+/* info */
+.lplayer .lplayer-info{
+    position: absolute;
+    left: 22px; bottom: 12%;
+    /* user-select: none; */
+    max-width: calc( 85% - 56px );
+}
+.lplayer .lplayer-info .lplayer-title{
+    font-size: 22px; font-weight: bold;
+    margin-bottom: 5px;
+}
+.lplayer .lplayer-info .lplayer-author{
+    font-size: 14px; font-weight: 100;
+    opacity: .8;
+}
+
+
+/* controller */
+.lplayer .lplayer-controller{
+    position: absolute;
+    right: 22px; bottom: 0;
+    height: 61.8%;
+}
+/* time-bar */
+.lplayer .lplayer-controller .lplayer-time{
+    position: relative;
+    height: 61.8%;
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar{
+    position: relative;
+    width: 100%; height: calc( 100% - 48px );
+    max-width: 20px;
+    margin: 8px auto; padding: 0;
+    cursor: pointer;
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-body,
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-loaded,
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-played {
+    border-radius: 4px;
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-body{
+    position: relative;
+    width: 5px; height: 100%;
+    margin: 0 auto; padding: 0;
+    background: rgb(170, 170, 170);
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-body .lplayer-bar-loaded{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20%;
+    height: 70%;
+    background: rgb(255, 255, 255);
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-body .lplayer-bar-played{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    height: 50%;
+    background: rgb(94, 122, 245);
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-bar .lplayer-bar-body .lplayer-bar-played .lplayer-bar-pointer{
+    position: absolute;
+    bottom: 0; left: -5px;
+    width: 15px; height: 15px;
+    margin-bottom: -7.5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+}
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-play,
+.lplayer .lplayer-controller .lplayer-time .lplayer-time-end {
+    font-size: 12px;
+    opacity: .6;
+    user-select: none;
+}
+/* play-btn */
+.lplayer .lplayer-controller .lplayer-play{
+    position: relative;
+    margin-top: 12px;
+}
+.lplayer .lplayer-controller .lplayer-play .lplayer-play-btn{
+    position: relative;
+    width: 36px; height: 36px;
+    margin: 0; padding: 0;
+    border: 0; border-radius: 50%;
+}
+
+
+
+
+
+
+
