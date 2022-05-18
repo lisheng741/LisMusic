@@ -161,6 +161,9 @@ const initPageControl = (container) => {
     };
 
     container.addEventListener(utils.nameMap.dragStart, (e) => {
+        if (window.innerWidth > 668) {
+            return;
+        }
         if (container.dragging) {
             return;
         }
