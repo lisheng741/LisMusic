@@ -8,6 +8,8 @@ using System.Text.Unicode;
 using LisMusic.Common;
 using LisMusic.Services;
 using System.Text.Json;
+using Microsoft.Extensions.WebEncoders;
+using LisMusic.Services.MusicHandler;
 
 namespace LisMusic
 {
@@ -26,32 +28,43 @@ namespace LisMusic
             services.AddSession();
             services.AddResponseCaching();
 
+            services.Configure<WebEncoderOptions>(options => options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+            services.Configure<JsonSerializerOptions>(options =>
+            {
+                //options.JsonSerializerOptions.PropertyNamingPolicy = null; // 属性命名策略。 null=保留属性名称不变
+                options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                options.Converters.Add(new DateTimeToStringConverter());
+                options.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All); // 编码
+                options.IgnoreNullValues = true;
+            });
+
             services.AddControllersWithViews().AddJsonOptions(options =>
             {
-                //options.JsonSerializerOptions.PropertyNamingPolicy = null; //属性命名策略。 null=保留属性名称不变
+                //options.JsonSerializerOptions.PropertyNamingPolicy = null; // 属性命名策略。 null=保留属性名称不变
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 options.JsonSerializerOptions.Converters.Add(new DateTimeToStringConverter());
-                options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All); //编码
+                options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All); // 编码
                 options.JsonSerializerOptions.IgnoreNullValues = true;
             }).AddRazorRuntimeCompilation();
 
-            //Http服务
+            // Http 请求能力
             services.AddHttpClient<MusicHttpClient>();
 
-            //各大音乐平台音乐服务
-            //services.AddScoped<IALLMusicService, KGMusicService>();
-            services.AddScoped<IALLMusicService, KWMusicService>();
-            //services.AddScoped<IALLMusicService, QQMusicService>();
-            //services.AddScoped<IALLMusicService, WYYMusicService>();
+            // 各大音乐平台音乐提供程序
+            //services.AddScoped<IMusicHandler, KGMusicHandler>();
+            services.AddScoped<IMusicHandler, KWMusicHandler>();
+            //services.AddScoped<IMusicHandler, QQMusicHandler>();
+            //services.AddScoped<IMusicHandler, WYYMusicHandler>();
+            services.AddScoped<IMusicHandlerProvider, MusicHandlerProvider>();
 
-            //总的音乐服务
+            // 音乐服务
             services.AddScoped<IMusicService, MusicService>();
 
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowCors", builder =>
                 {
-                    builder .WithOrigins(_configuration["URL:Domain"])
+                    builder.WithOrigins(_configuration["URL:Domain"])
                            .AllowAnyMethod()
                            .AllowAnyHeader()
                            .AllowCredentials();
@@ -59,7 +72,7 @@ namespace LisMusic
             });
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

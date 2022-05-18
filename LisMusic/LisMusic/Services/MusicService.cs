@@ -1,7 +1,7 @@
 ﻿using LisMusic.Common;
 using LisMusic.Models;
+using LisMusic.Services.MusicHandler;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,11 +10,11 @@ namespace LisMusic.Services
 {
     public class MusicService : IMusicService
     {
-        private readonly IEnumerable<IALLMusicService> _musicServices;
+        private readonly IMusicHandlerProvider _musicHandlerProvider;
 
-        public MusicService(IEnumerable<IALLMusicService> musicServices)
+        public MusicService(IMusicHandlerProvider musicHandlerProvider)
         {
-            _musicServices = musicServices;
+            _musicHandlerProvider = musicHandlerProvider;
         }
 
         public async Task<IActionResult> GetMusicListAsync(string keyWord)
@@ -24,18 +24,7 @@ namespace LisMusic.Services
                 return ApiReturn.Fail(msg: "搜索关键词不能为空白！");
             }
 
-            List<Task<List<MusicInfo>>> tasks = new List<Task<List<MusicInfo>>>();
-            foreach (IALLMusicService musicService in _musicServices)
-            {
-                tasks.Add(musicService.GetMusicListAsync(keyWord));
-            }
-            await Task.WhenAll(tasks); //等待4个搜索任务都完成
-
-            List<MusicInfo> musicInfos = new List<MusicInfo>();
-            foreach (var task in tasks)
-            {
-                musicInfos.AddRange(task.Result);
-            }
+            var musicInfos = await _musicHandlerProvider.GetMusicListAsync(keyWord);
             musicInfos = musicInfos.OrderBy(t => t.MusicSource).ToList();
             for (int i = 0; i < musicInfos.Count; i++)
             {
@@ -51,14 +40,10 @@ namespace LisMusic.Services
             {
                 return ApiReturn.Fail(msg: "参数不足！");
             }
-            IALLMusicService service = _musicServices.Where(t => t.MusicSource == musicInfo.MusicSource).FirstOrDefault();
-            if (service == null)
-            {
-                return ApiReturn.Error(msg: "无法找到指定音乐服务，可能该服务已经关闭！"); //如果某个平台不给下载，注释 Startup 里面注入的服务，即关闭服务
-            }
-            string str = await service.GetMusicUrlAsync(musicInfo);
 
-            return ApiReturn.Success(data: str);
+            string result = await _musicHandlerProvider.GetMusicUrlAsync(musicInfo);
+
+            return ApiReturn.Success(data: result);
         }
 
         public async Task<IActionResult> GetMusicAsync(MusicInfo musicInfo)
@@ -67,14 +52,10 @@ namespace LisMusic.Services
             {
                 return ApiReturn.Fail(msg: "参数不足！");
             }
-            IALLMusicService service = _musicServices.Where(t => t.MusicSource == musicInfo.MusicSource).FirstOrDefault();
-            if (service == null)
-            {
-                return ApiReturn.Error(msg: "无法找到指定音乐服务，可能该服务已经关闭！"); //如果某个平台不给下载，注释 Startup 里面注入的服务，即关闭服务
-            }
 
-            (Stream stream, string str) = await service.GetMusicAsync(new MusicInfo()); //不能用using，会关闭流 //问题：是否会持续占用内存？
-            stream.Position = 0;
+            //不能用using，会关闭流 //问题：是否会持续占用内存？
+            (Stream stream, string str) = await _musicHandlerProvider.GetMusicAsync(new MusicInfo());
+            
             Music music = new Music()
             {
                 Name = musicInfo.Name,

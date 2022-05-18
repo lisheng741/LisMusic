@@ -10,15 +10,20 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LisMusic.Common;
 using System.IO;
+using LisMusic.Services.MusicHandler;
 
 namespace LisMusic.Controllers
 {
+    /// <summary>
+    /// 测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……
+    /// 测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……测试用的……
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IEnumerable<IALLMusicService> _musicServices;
+        private readonly IEnumerable<IMusicHandler> _musicServices;
 
-        public HomeController(ILogger<HomeController> logger, IEnumerable<IALLMusicService> musicServices)
+        public HomeController(ILogger<HomeController> logger, IEnumerable<IMusicHandler> musicServices)
         {
             _logger = logger;
             _musicServices = musicServices;
@@ -30,7 +35,7 @@ namespace LisMusic.Controllers
         {
             await Task.Delay(1);
 
-            IALLMusicService service = _musicServices.Where(t => t.MusicSource == MusicSource.KG).FirstOrDefault();
+            IMusicHandler service = _musicServices.Where(t => t.MusicSource == MusicSource.KG).FirstOrDefault();
 
 
             //"https://webfs.yun.kugou.com/202104042233/2398c6ef59a8184a9f34ba265e4b5ea1/G195/M02/0D/11/Aw4DAF5gRj2AIPWyAESogEZRJSc737.mp3"
@@ -52,7 +57,7 @@ namespace LisMusic.Controllers
         {
             await Task.Delay(1);
 
-            IALLMusicService service = _musicServices.Where(t => t.MusicSource == MusicSource.KG).FirstOrDefault();
+            IMusicHandler service = _musicServices.Where(t => t.MusicSource == MusicSource.KG).FirstOrDefault();
 
             //Stream stream = await service.GetMusicDownloadUrlAsync("https://webfs.yun.kugou.com/202104042233/2398c6ef59a8184a9f34ba265e4b5ea1/G195/M02/0D/11/Aw4DAF5gRj2AIPWyAESogEZRJSc737.mp3"); //不能用using，会关闭流 //报错：Cannot access a closed Stream. //是否会持续占用内存？
 
@@ -93,7 +98,7 @@ namespace LisMusic.Controllers
             string keyWord = "九万字";
             List<Task<List<MusicInfo>>> tasks = new List<Task<List<MusicInfo>>>();
 
-            foreach(IALLMusicService musicService in _musicServices)
+            foreach(IMusicHandler musicService in _musicServices)
             {
                 tasks.Add(musicService.GetMusicListAsync(keyWord));
             }

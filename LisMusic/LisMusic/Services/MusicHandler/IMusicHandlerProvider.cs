@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace LisMusic.Services
+namespace LisMusic.Services.MusicHandler
 {
-    public interface IALLMusicService
+    public interface IMusicHandlerProvider
     {
-        /// <summary>
-        /// 音乐来源
-        /// </summary>
-        MusicSource MusicSource { get; }
-
         /// <summary>
         /// 获取音乐列表
         /// </summary>

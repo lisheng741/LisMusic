@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.IO;
 
-namespace LisMusic.Services
+namespace LisMusic.Services.MusicHandler
 {
-    public class KGMusicService : IALLMusicService
+    public class KGMusicHandler : IMusicHandler
     {
         private readonly MusicSource _musicSource = MusicSource.KG;
         private readonly MusicHttpClient _httpClient;
@@ -23,7 +23,7 @@ namespace LisMusic.Services
         //参数：<<FileHash>> <<kgDFID>> <<KgMid>>
         const string urlGetMusicDownloadUrl = "https://wwwapi.kugou.com/yy/index.php?r=play/getdata&hash={0}&dfid={1}&mid={2}";
 
-        public KGMusicService(MusicHttpClient httpClient, IConfiguration configuration)
+        public KGMusicHandler(MusicHttpClient httpClient, IConfiguration configuration)
         {
             //httpClient.BaseAddress = new Uri("https://songsearch.kugou.com");
 
@@ -70,7 +70,9 @@ namespace LisMusic.Services
         public async Task<string> GetMusicUrlAsync(MusicInfo musicInfo)
         {
             if (string.IsNullOrEmpty(musicInfo.DownloadInfo))
+            {
                 throw new ArgumentNullException(nameof(musicInfo.DownloadInfo));
+            }
 
             try
             {

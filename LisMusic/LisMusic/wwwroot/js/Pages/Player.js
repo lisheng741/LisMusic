@@ -14,6 +14,19 @@ let utils = {
     }
 };
 
+
+// 2022-5-18 cls 添加分享设置 begin ------
+const shareAdapter = (data) => {
+    var item = {};
+    item.name = data.name;
+    item.artist = data.artist;
+    item.url = `http://antiserver.kuwo.cn/anti.s?format=mp3|mp3&rid=MUSIC_${data.info}&type=convert_url&response=res`;
+    item.lrc = `https://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId=${data.info}`;
+    item.lrcAdapter = lrcAdapter;
+    return item;
+}
+// 2022-5-18 cls 添加分享设置 end -----------
+
 const lrcAdapter = (data) => {
     let lrc = [];
     let lrcList = data.data.lrclist || [];
@@ -103,7 +116,8 @@ const initPageControl = (container) => {
     };
 
     const thumbUp = (e) => {
-        let percentage = parseFloat(container.style.transform.match(/-?\d+(.\d+)?%/)[0]);
+        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || ['0%'];
+        let percentage = parseFloat(transformArray[0]);
         let finalPercentage = container.dragStartPercentageX || CON_PAGE_1;
         let dragPercentage = ((e.clientX || e.changedTouches[0].clientX) - container.dragStartX) / document.documentElement.clientWidth / 3 * 100;
         if (!container.direction || container.direction !== CON_MOVING_DIRECTION_HORIZONTAL || Math.abs(dragPercentage) < 8.55) {
@@ -151,7 +165,8 @@ const initPageControl = (container) => {
             return;
         }
         container.dragging = true;
-        container.dragStartPercentageX = container.dragStartPercentageX || parseFloat(container.style.transform.match(/-?\d+(.\d+)?%/)[0]) || CON_PAGE_1;
+        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || ['0%'];
+        container.dragStartPercentageX = container.dragStartPercentageX || parseFloat(transformArray[0]) || CON_PAGE_1;
         container.dragStartX = e.clientX || e.changedTouches[0].clientX;
         container.dragStartY = e.clientY || e.changedTouches[0].clientY;
         container.addEventListener(utils.nameMap.dragMove, thumbMove);
@@ -222,6 +237,7 @@ let audios = [
         lrcAdapter: lrcAdapter,
     }
 ]
+
 let player = new LPlayer({
     ele,
     lrcType: 1,
@@ -237,8 +253,6 @@ let list = new SList({
 if (!list.list || list.list.length === 0) {
     list.add(audios);
 }
-player.list.add(list.list);
-list.active(0);
 list.on('lineclick', listLineClick);
 list.on('deleteclick', listDelete);
 
@@ -255,7 +269,21 @@ search.on('lineclick', searchLineClick);
 search.on('addclick', searchAdd);
 search.adapter.set('search', searchAdapter);
 
-player.list.container = list;
+if (musicShare.info) {
+    // 2022-5-18 cls 添加分享设置
+    search.add(shareAdapter(musicShare));
+
+    search.active(0);
+    player.list.add(search.list);
+    player.list.container = search;
+} else {
+    // 2022-5-18 cls 添加分享设置 原本走的设置
+    list.active(0);
+    player.list.add(list.list);
+    player.list.container = list;
+}
+
+
 player.on('listswitch', playerListSwitch);
 player.adapter.set('lrc', lrcAdapter);
 

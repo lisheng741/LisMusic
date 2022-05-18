@@ -20,6 +20,15 @@
         /// </summary>
         public string Extension { get; set; }
 
+        public Music() { }
+
+        public Music(string name, string singer, string extension)
+        {
+            Name = name;
+            Singer = singer;
+            Extension = extension;
+        }
+
         /// <summary>
         /// 获取音乐文件名
         /// </summary>
@@ -28,7 +37,7 @@
         public string GetFileName(MusicFileNameType nameType = MusicFileNameType.OnlyName)
         {
             //获取
-            string strFileName =  nameType switch
+            string strFileName = nameType switch
             {
                 MusicFileNameType.OnlyName => $"{this.Name}{this.Extension}",
                 MusicFileNameType.NameWithSinger1 => $"{this.Name}-{this.Singer}{this.Extension}",

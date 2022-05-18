@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LisMusic.Services
+namespace LisMusic.Services.MusicHandler
 {
-    public class WYYMusicService : IALLMusicService
+    public class WYYMusicHandler : IMusicHandler
     {
         private readonly MusicSource _musicSource = MusicSource.WYY;
         private readonly MusicHttpClient _httpClient;
@@ -27,7 +27,7 @@ namespace LisMusic.Services
         const string urlGetMusicDownloadUrl = "/weapi/song/enhance/player/url/v1?csrf_token=";
         //http://music.163.com/song/media/outer/url?id=1335942780.mp3
 
-        public WYYMusicService(MusicHttpClient httpClient, IConfiguration configuration)
+        public WYYMusicHandler(MusicHttpClient httpClient, IConfiguration configuration)
         {
             httpClient.BaseAddress = new Uri("https://music.163.com/");
 
@@ -86,7 +86,9 @@ namespace LisMusic.Services
         public async Task<string> GetMusicUrlAsync(MusicInfo musicInfo)
         {
             if (string.IsNullOrEmpty(musicInfo.DownloadInfo))
+            {
                 throw new ArgumentNullException(nameof(musicInfo.DownloadInfo));
+            }
 
             try
             {

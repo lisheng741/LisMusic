@@ -8,9 +8,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace LisMusic.Services
+namespace LisMusic.Services.MusicHandler
 {
-    public class KWMusicService : IALLMusicService
+    public class KWMusicHandler : IMusicHandler
     {
         private readonly MusicSource _musicSource = MusicSource.KW;
         private readonly MusicHttpClient _httpClient;
@@ -22,7 +22,7 @@ namespace LisMusic.Services
         //参数：<<MUSICID>> //旧下载接口，可下vip
         const string urlGetMusicDownloadUrl = "http://antiserver.kuwo.cn/anti.s?format=mp3|mp3&rid={0}&type=convert_url&response=res";
 
-        public KWMusicService(MusicHttpClient httpClient)
+        public KWMusicHandler(MusicHttpClient httpClient)
         {
             //httpClient.BaseAddress = new Uri("http://sou.kuwo.cn");
 
@@ -77,7 +77,9 @@ namespace LisMusic.Services
         public async Task<string> GetMusicUrlAsync(MusicInfo musicInfo)
         {
             if (string.IsNullOrEmpty(musicInfo.DownloadInfo))
+            {
                 throw new ArgumentNullException(nameof(musicInfo.DownloadInfo));
+            }
 
             string strMusicUrl = string.Format(urlGetMusicDownloadUrl, musicInfo.DownloadInfo);
             return strMusicUrl;

@@ -9,9 +9,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace LisMusic.Services
+namespace LisMusic.Services.MusicHandler
 {
-    public class QQMusicService : IALLMusicService
+    public class QQMusicHandler : IMusicHandler
     {
         private readonly MusicSource _musicSource = MusicSource.QQ;
         private readonly MusicHttpClient _httpClient;
@@ -25,7 +25,7 @@ namespace LisMusic.Services
         //参数：<<guid>> <<mid>> <<uin>>
         const string urlGetMusicDownloadUrl = "https://u.y.qq.com/cgi-bin/musicu.fcg?&data={\"req_0\":{\"module\":\"vkey.GetVkeyServer\",\"method\":\"CgiGetVkey\",\"param\":{\"guid\":\"{0}\",\"songmid\":[\"{1}\"],\"uin\":\"{2}\"}}}";
 
-        public QQMusicService(MusicHttpClient httpClient, IConfiguration configuration)
+        public QQMusicHandler(MusicHttpClient httpClient, IConfiguration configuration)
         {
             //httpClient.BaseAddress = new Uri("http://qqmusic.qq.com");
 
@@ -73,7 +73,9 @@ namespace LisMusic.Services
         public async Task<string> GetMusicUrlAsync(MusicInfo musicInfo)
         {
             if (string.IsNullOrEmpty(musicInfo.DownloadInfo))
+            {
                 throw new ArgumentNullException(nameof(musicInfo.DownloadInfo));
+            }
 
             try
             {
