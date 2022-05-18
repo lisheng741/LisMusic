@@ -116,7 +116,7 @@ const initPageControl = (container) => {
     };
 
     const thumbUp = (e) => {
-        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || ['0%'];
+        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || [`${CON_PAGE_2}%`];
         let percentage = parseFloat(transformArray[0]);
         let finalPercentage = container.dragStartPercentageX || CON_PAGE_1;
         let dragPercentage = ((e.clientX || e.changedTouches[0].clientX) - container.dragStartX) / document.documentElement.clientWidth / 3 * 100;
@@ -165,7 +165,7 @@ const initPageControl = (container) => {
             return;
         }
         container.dragging = true;
-        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || ['0%'];
+        let transformArray = container.style.transform.match(/-?\d+(.\d+)?%/) || [`${CON_PAGE_2}%`];
         container.dragStartPercentageX = container.dragStartPercentageX || parseFloat(transformArray[0]) || CON_PAGE_1;
         container.dragStartX = e.clientX || e.changedTouches[0].clientX;
         container.dragStartY = e.clientY || e.changedTouches[0].clientY;
