@@ -16,7 +16,7 @@ class Lrc {
         if (this.index > this.current.length - 1 || currentTime < this.current[this.index][0] || (!this.current[this.index + 1] || currentTime >= this.current[this.index + 1][0])) {
             for (let i = 0; i < this.current.length; i++) {
                 if (currentTime >= this.current[i][0] && (!this.current[i + 1] || currentTime < this.current[i + 1][0])) {
-                    let iTranslate = i - 2 < 0 ? 0 : i - 2;
+                    let iTranslate = i - 1 < 0 ? 0 : i - 1;
                     this.index = i;
                     this.container.style.transform = `translateY(${-iTranslate * CON_LRC_HEIGHT}px)`;
                     this.container.style.webkitTransform = `translateY(${-iTranslate * CON_LRC_HEIGHT}px)`;

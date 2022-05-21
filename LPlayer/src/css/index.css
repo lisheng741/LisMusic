@@ -44,7 +44,7 @@ svg{
 .lplayer .lplayer-lrc{
     position: absolute;
     left: 22px; top: 100px;
-    width: calc( 100% - 44px ); height: 120px;
+    width: calc( 100% - 44px ); height: 60px;
     overflow: hidden;
 }
 .lplayer .lplayer-lrc .lplayer-lrc-contents{
