@@ -11,15 +11,21 @@
 
 旧版地址：http://music.cnote.cn/
 
+### 项目结构
+
+- ListMusic    主项目，使用VS2019可直接打开运行
+- LPlayer       播放器前端组件
+- SList            播放列表前端组件
 
 ### 基本说明
+
 1、爬虫接口相关沿用旧项目 https://gitee.com/lisheng741/UnLockMusic
 
 2、LisMusic 基于.NET5.0 MVC，依赖注入(IoC)使用默认DI容器，爬虫方式，内容很少，适合新（wu）手（ren）入（zi）门（di）
 
-4、LPlayer 和 SList 是瞎抄瞎写的前端项目
+4、LPlayer 和 SList 是发挥了面向百度开发工程师（cv）精神的前端项目
 
-5、LPlayer 抄于APlayer | https://github.com/DIYgod/APlayer
+5、LPlayer 借（c）鉴（v）于APlayer | https://github.com/DIYgod/APlayer
 
 ### 项目期望
 
@@ -61,9 +67,9 @@ npm run build
 
 ~~然后心里又马上驳回了自己，自己就是个渣渣，转什么都一样，哎- -！继续搬砖吧。~~
 
-#### 记于2021年11月21日
+#### ~~记于2021年11月21日~~
 
-就这样了吧。
+~~就这样了吧。~~
 
 #### 记于2022年5月18日
 
@@ -72,5 +78,10 @@ npm run build
 
 ### 捐助
 如果这个项目对您有所帮助，请扫下方二维码打赏一杯咖啡。
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1005/195155_1a739694_5684918.png "芦荟柚子茶.png")
+
+啊呸，我不喝咖啡，来杯可乐吧，啊哈哈哈。
+
+[赞助列表](https://lisheng741.gitee.io/blog/thanks/)
+
+![输入图片说明](../images/195155_1a739694_5684918.png "芦荟柚子茶.png")
 

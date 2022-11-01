@@ -37,7 +37,7 @@
         let shareUrl = `${domain}/?name=${audio.name}&artist=${audio.artist}&info=${downloadInfo}`;
         // 模拟复制 begin
         let area = document.createElement('textarea');
-        area.innerText = shareUrl;
+        area.innerText = encodeURI(shareUrl);
         document.body.appendChild(area);
         area.select();
         document.execCommand('Copy');
