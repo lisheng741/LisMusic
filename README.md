@@ -83,5 +83,5 @@ npm run build
 
 [赞助列表](https://lisheng741.gitee.io/blog/thanks/)
 
-![输入图片说明](../images/195155_1a739694_5684918.png "芦荟柚子茶.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1005/195155_1a739694_5684918.png "芦荟柚子茶.png")
 
